@@ -218,6 +218,11 @@ img {
 
 .details-rate {
     margin-bottom: 20px;
+    color: rgb(177, 148, 17);
+}
+
+.rate-star {
+    padding: 3px;
 }
 
 .details-like {

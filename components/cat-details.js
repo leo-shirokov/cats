@@ -30,10 +30,17 @@ async function showCatDetails(id) {
     pAge.className = "details-age";
     pAge.innerText = "Возраст: " + cat?.age ?? "0";
     detailsContainer.appendChild(pAge);
-    const pRate = document.createElement("p");
-    pRate.className = "details-rate";
-    pRate.innerText = cat?.rate ?? "";
-    detailsContainer.appendChild(pRate);
+    //рейтинг
+    const rateContainer = document.createElement("div");
+    rateContainer.className = "details-rate";
+    for (let i = 0; i < cat?.rate; i += 1) {
+        const pRate = document.createElement("i");
+        pRate.className = "fa-star rate-star";
+        pRate.classList.add(cat.rate ? "fa-solid" : "fa-regular");
+        rateContainer.appendChild(pRate);
+        detailsContainer.appendChild(rateContainer);
+    }
+
     const pDesc = document.createElement("p");
     pDesc.innerText = cat?.description ?? "";
     detailsContainer.appendChild(pDesc);

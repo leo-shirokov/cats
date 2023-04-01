@@ -42,7 +42,7 @@ const createEditForm = (cat) => `
     <input
             name="rate"
             type="number"
-            max="10"
+            max="5"
             ${cat?.rate ? `value="${cat.rate}"` : `placeholder="Рейтинг"`}
         />
     </div>
