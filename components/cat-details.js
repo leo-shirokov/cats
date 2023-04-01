@@ -8,7 +8,6 @@ async function showCatDetails(id) {
     closeBut.className = "details-close";
     closeBut.addEventListener("click", () => {
         holder.classList.remove("active");
-        overlay.classList.remove("active");
     });
     closeBut.innerHTML = "&times;";
     holder.appendChild(closeBut);
@@ -33,10 +32,10 @@ async function showCatDetails(id) {
     //рейтинг
     const rateContainer = document.createElement("div");
     rateContainer.className = "details-rate";
-    for (let i = 0; i < cat?.rate; i += 1) {
+    for (let i = 0; i < 5; i += 1) {
         const pRate = document.createElement("i");
         pRate.className = "fa-star rate-star";
-        pRate.classList.add(cat.rate ? "fa-solid" : "fa-regular");
+        pRate.classList.add(i < cat.rate ? "fa-solid" : "fa-regular");
         rateContainer.appendChild(pRate);
         detailsContainer.appendChild(rateContainer);
     }
@@ -46,27 +45,5 @@ async function showCatDetails(id) {
     detailsContainer.appendChild(pDesc);
 
     holder.classList.add("active");
-
-    const like = document.createElement("i");
-    like.className = "fa-heart details-like";
-    like.classList.add(cat.favorite ? "fa-solid" : "fa-regular");
-    detailsContainer.append(like);
-    like.addEventListener("click", (e) => {
-        e.stopPropagation();
-        if (cat.id) {
-            fetch(`${baseUrl}update/${cat.id}`, {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ favorite: !cat.favorite }),
-            }).then((res) => {
-                if (res.status === 200) {
-                    like.classList.toggle("fa-solid");
-                    like.classList.toggle("fa-regular");
-                }
-            });
-        }
-    });
 }
 export default showCatDetails;

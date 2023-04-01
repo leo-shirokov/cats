@@ -227,10 +227,7 @@ img {
 
 .details-like {
     color: rgb(178, 74, 74);
-    font-size: 34px;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+    font-size: 28px;
     padding: 5px;
     cursor: pointer;
 }

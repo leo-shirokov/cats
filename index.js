@@ -54,7 +54,6 @@ function addNewCat() {
     const form = formHolder.querySelector("form");
     closeFormButton(form);
     form.addEventListener("submit", async (event) => {
-        console.log("submitting add");
         await update(event, "addCat");
     });
 }
@@ -66,24 +65,36 @@ async function updateCat(id) {
     const form = formHolder.querySelector("form");
     closeFormButton(form);
     form.addEventListener("submit", async (event) => {
-        console.log("submitting update");
         await update(event, "updateCat", currCat.id);
     });
 }
 
-function addButtonListeners(event) {
-    if (event.target.tagName !== "BUTTON") return;
-    switch (event.target.className) {
+async function addLike(event) {
+    const [heartId] = event.target?.id?.match(/\d+/);
+    const currCat = await api.getCatByID(heartId);
+    if ("favorite" in currCat) {
+        currCat.favorite = !currCat.favorite;
+    } else {
+        currCat.favorite = true;
+    }
+    await api.updateCat(currCat);
+    updateContent();
+}
+
+function contentEventListeners(event) {
+    const [className] = event.target.className.split(" ");
+    switch (className) {
         case "cat-card-delete":
             if (confirm("Ты хорошо подумал, кожаный?")) {
                 return deleteCat(event.target.value);
-            } else {
-                return false;
             }
+            return;
         case "cat-card-update":
             return updateCat(event.target.value);
         case "cat-card-view":
             return showCatDetails(event.target.value);
+        case "details-like":
+            return addLike(event);
         default:
     }
 }
@@ -92,7 +103,7 @@ async function main() {
     try {
         await updateContent();
         addButton.addEventListener("click", addNewCat);
-        content.addEventListener("click", addButtonListeners);
+        content.addEventListener("click", contentEventListeners);
     } catch (error) {
         console.error(error);
     }
