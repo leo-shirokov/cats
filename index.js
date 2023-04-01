@@ -75,7 +75,11 @@ function addButtonListeners(event) {
     if (event.target.tagName !== "BUTTON") return;
     switch (event.target.className) {
         case "cat-card-delete":
-            return deleteCat(event.target.value);
+            if (confirm("Ты хорошо подумал, кожаный?")) {
+                return deleteCat(event.target.value);
+            } else {
+                return false;
+            }
         case "cat-card-update":
             return updateCat(event.target.value);
         case "cat-card-view":
