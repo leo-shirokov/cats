@@ -12,7 +12,6 @@ const generateCard = (cat) => {
     <button class="cat-card-delete" title="Удалить" value=${
         cat?.id ?? ""
     }>&#10008;</button>
-    <span class="card-like"></span>
     </div>
     </div>`;
 };

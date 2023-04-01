@@ -11,12 +11,19 @@ body {
     line-height: 1;
 }
 
-header {
+.header {
     height: 7vh;
     max-width: 1180px;
     margin: 0 auto;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+.header h1 {
+    padding-top: 15px;
+    font-size: 24px;
+    color: rgb(11, 40, 85);
 }
 
 #add-cat-button {
@@ -51,7 +58,7 @@ main {
     justify-content: center;
     align-items: center;
     width: 300px;
-    height: 300px;
+    height: 350px;
     border: 1px solid rgb(250, 250, 250);
     box-shadow: 5px 3px 4px 2px grey;
     border-radius: 10px;
@@ -121,6 +128,14 @@ img {
 .cat-details {
     display: none;
     position: absolute;
+}
+
+.details-close {
+    font-size: 26px;
+    border: none;
+    padding: 5px;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .active {

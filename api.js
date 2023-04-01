@@ -5,7 +5,7 @@
 // 1 PUT https://cats.petiteweb.dev/api/single/:user/update/:id - изменить информацию о котике
 // 0 DELETE  https://cats.petiteweb.dev/api/single/:user/delete/:id - удалить котика из базы данных
 
-const baseUrl = "https://cats.petiteweb.dev/api/single/leo-shirokov/";
+export const baseUrl = "https://cats.petiteweb.dev/api/single/leo-shirokov/";
 
 export const printError = async (res) => {
     if (!res.ok) throw new Error("Ошибка");
