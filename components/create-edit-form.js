@@ -3,7 +3,7 @@ const createEditForm = (cat) => `
 <div class="form-wrapper">
     <div>
     <label for="name" required>
-        Кличка*
+        Позывной*
     </label>
     <input
             ${cat?.name ? `value="${cat.name}"` : `placeholder="Имя"`}
@@ -13,7 +13,7 @@ const createEditForm = (cat) => `
     </div>
     <div>
     <label for="image">
-        Изображение
+        Фото
     </label>
     <input size="40" 
             name="image"

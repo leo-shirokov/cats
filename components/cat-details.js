@@ -41,6 +41,7 @@ async function showCatDetails(id) {
     }
 
     const pDesc = document.createElement("p");
+    pDesc.className = "details-description";
     pDesc.innerText = cat?.description ?? "";
     detailsContainer.appendChild(pDesc);
 

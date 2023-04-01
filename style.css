@@ -30,7 +30,7 @@ body {
     font-size: 34px;
     color: rgb(11, 40, 85);
     cursor: pointer;
-    padding: 20px;
+    padding: 15px 0px 0px 20px;
 }
 
 main {
@@ -81,11 +81,11 @@ img {
 }
 
 .cat-card-view {
-    padding: 7px;
+    padding: 6px;
     font-size: 16px;
     cursor: pointer;
     color: rgb(11, 40, 85);
-    border: 1px solid grey;
+    border: 1px solid rgb(11, 40, 85);
     border-radius: 5px;
     background-color: transparent;
 }
@@ -230,4 +230,38 @@ img {
     font-size: 28px;
     padding: 5px;
     cursor: pointer;
+}
+
+.details-description {
+    padding: 10px;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+/* ********* Медиа-запросы *********** */
+@media (max-width: 768px) {
+    .header h1 {
+        padding-top: 10px;
+        padding-right: 20px;
+        font-size: 16px;
+    }
+
+    .main {
+        width: 90%;
+    }
+
+    .create-edit-modal-form {
+        width: 95%;
+        height: 50%;
+    }
+
+    .cat-details {
+        width: 95%;
+        height: 50%;
+        flex-direction: column;
+    }
+
+    .details-close {
+        top: 2px;
+    }
 }
