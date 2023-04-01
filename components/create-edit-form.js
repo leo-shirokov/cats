@@ -1,15 +1,21 @@
 const createEditForm = (cat) => `
 <form id="create-edit-form" action="">
+<div class="form-wrapper">
+    <div>
     <label for="name" required>
-        <input
+        Кличка*
+    </label>
+    <input
             ${cat?.name ? `value="${cat.name}"` : `placeholder="Имя"`}
-            name="name"
+            name="name" maxlength="40"
             required
         />
-        Имя
-    </label>
+    </div>
+    <div>
     <label for="image">
-        <input
+        Изображение
+    </label>
+    <input size="40" 
             name="image"
             ${
                 cat?.image
@@ -17,34 +23,44 @@ const createEditForm = (cat) => `
                     : `placeholder="Ссылка на изображение"`
             }
         />
-        Изображение
-    </label>
+    </div>
+    <div>
     <label for="age">
-        <input
-            name="age"
-            type="number"
-            ${cat?.age ? `value="${cat.age}"` : `placeholder="Возраст"`}
-        />
         Возраст
     </label>
-    <label for="rate">
-        <input
-            name="rate"
+    <input
+            name="age"
             type="number"
-            ${cat?.rate ? `value="${cat.rate}"` : `placeholder="Рейтинг"`}
+            max="30"
+            ${cat?.age ? `value="${cat.age}"` : `placeholder="Возраст"`}
         />
+    </div>
+    <div>
+    <label for="rate">
         Рейтинг
     </label>
+    <input
+            name="rate"
+            type="number"
+            max="10"
+            ${cat?.rate ? `value="${cat.rate}"` : `placeholder="Рейтинг"`}
+        />
+    </div>
+    <div>
     <label for="decsription">
-        <textarea
-            name="description"
-            rows="3"
-        >${cat?.description ?? ""}</textarea>
         Описание
     </label>
-        
+    <textarea
+            name="description"
+            rows="3"
+            size="30"
+        >${cat?.description ?? ""}</textarea>
+    </div>
+    <div class="form-buttons"> 
     <button type="submit">Отправить</button>
     <button type="button" id="close-form">Закрыть</button>
+    </div>
+</div>
 </form>
 `;
 export default createEditForm;

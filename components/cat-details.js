@@ -8,32 +8,42 @@ async function showCatDetails(id) {
     closeBut.className = "details-close";
     closeBut.addEventListener("click", () => {
         holder.classList.remove("active");
+        overlay.classList.remove("active");
     });
     closeBut.innerHTML = "&times;";
     holder.appendChild(closeBut);
     if (cat?.image) {
         const img = document.createElement("img");
+        img.className = "details-image";
         img.src = cat.image;
         holder.appendChild(img);
     }
+    const detailsContainer = document.createElement("div");
+    detailsContainer.className = "details-wrapper";
+    holder.append(detailsContainer);
+
     const h3 = document.createElement("h3");
+    h3.className = "details-header";
     h3.innerText = cat?.name ?? "No name";
-    holder.appendChild(h3);
+    detailsContainer.appendChild(h3);
     const pAge = document.createElement("p");
-    pAge.innerText = cat?.age ?? "0";
-    holder.appendChild(pAge);
+    pAge.className = "details-age";
+    pAge.innerText = "Возраст: " + cat?.age ?? "0";
+    detailsContainer.appendChild(pAge);
     const pRate = document.createElement("p");
+    pRate.className = "details-rate";
     pRate.innerText = cat?.rate ?? "";
-    holder.appendChild(pRate);
+    detailsContainer.appendChild(pRate);
     const pDesc = document.createElement("p");
     pDesc.innerText = cat?.description ?? "";
-    holder.appendChild(pDesc);
+    detailsContainer.appendChild(pDesc);
+
     holder.classList.add("active");
 
     const like = document.createElement("i");
-    like.className = "fa-heart card-like";
+    like.className = "fa-heart details-like";
     like.classList.add(cat.favorite ? "fa-solid" : "fa-regular");
-    holder.append(like);
+    detailsContainer.append(like);
     like.addEventListener("click", (e) => {
         e.stopPropagation();
         if (cat.id) {
