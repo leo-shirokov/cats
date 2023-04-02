@@ -4,22 +4,25 @@ async function showCatDetails(id) {
     const cat = await getCatByID(id);
     const holder = document.getElementById("cat-details");
     holder.innerHTML = "";
+    const modale = document.querySelector("#modal-center");
     const closeBut = document.createElement("button");
     closeBut.className = "details-close";
-    closeBut.addEventListener("click", () => {
-        holder.classList.remove("active");
-    });
     closeBut.innerHTML = "&times;";
+    closeBut.addEventListener("click", () => {
+        UIkit.modal(modale).hide();
+    });
     holder.appendChild(closeBut);
+
+    const detailsContainer = document.createElement("div");
+    detailsContainer.className = "details-wrapper";
+    holder.append(detailsContainer);
+
     if (cat?.image) {
         const img = document.createElement("img");
         img.className = "details-image";
         img.src = cat.image;
-        holder.appendChild(img);
+        detailsContainer.appendChild(img);
     }
-    const detailsContainer = document.createElement("div");
-    detailsContainer.className = "details-wrapper";
-    holder.append(detailsContainer);
 
     const h3 = document.createElement("h3");
     h3.className = "details-header";

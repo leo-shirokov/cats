@@ -1,11 +1,14 @@
 const generateCard = (cat) => {
     return `<div class="cat-card">
-    ${cat?.image && `<img src=${cat.image} />`} 
+    ${
+        cat?.image &&
+        `<img src=${cat.image} alt="Не удалось загрузить изображение" />`
+    } 
     ${cat?.name ?? ""}
         <div class="cat-card-btns">
-            <button class="cat-card-view" title="Посмотреть детали" value=${
+            <button class="cat-card-view uk-button uk-button-link" href="#modal-center" uk-toggle title="Посмотреть детали" value=${
                 cat?.id ?? ""
-            }>Детали</button>
+            }>Подробно</button>
             <button class="cat-card-update" title="Редактировать" value=${
                 cat?.id ?? ""
             }>&#9998;</button>

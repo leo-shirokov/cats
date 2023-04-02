@@ -57,8 +57,8 @@ const createEditForm = (cat) => `
         >${cat?.description ?? ""}</textarea>
     </div>
     <div class="form-buttons"> 
-    <button type="submit">Отправить</button>
-    <button type="button" id="close-form">Закрыть</button>
+    <button type="submit">Сохранить</button>
+    <button type="button" id="close-form">Отмена</button>
     </div>
 </div>
 </form>
