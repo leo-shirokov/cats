@@ -7,6 +7,8 @@ const addButton = document.getElementById("add-cat-button");
 const content = document.getElementById("content");
 const formHolder = document.getElementById("create-edit-modal");
 
+const modale = document.getElementById("modal-center-create-edit");
+
 async function updateContent() {
     const cats = await api.getAllCats(); // array
     const cardsContent = cats.reduce((prev, cur) => prev + renderCard(cur), ""); // big long text
@@ -34,7 +36,7 @@ async function update(event, action, catId) {
     const newCat = Object.fromEntries(formData.entries());
     newCat.id = catId ?? (await getNewCatId());
     // close modal window
-    formHolder.classList.remove("active");
+    UIkit.modal(modale).hide();
     // api call
     await api[action](newCat);
     // update cats
@@ -43,13 +45,12 @@ async function update(event, action, catId) {
 
 function closeFormButton(form) {
     form.querySelector("#close-form").addEventListener("click", () => {
-        formHolder.classList.remove("active");
+        UIkit.modal(modale).hide();
     });
 }
 
 function addNewCat() {
     formHolder.innerHTML = renderForm();
-    formHolder.classList.add("active");
     // add submit listener to the form
     const form = formHolder.querySelector("form");
     closeFormButton(form);
@@ -61,7 +62,6 @@ function addNewCat() {
 async function updateCat(id) {
     const currCat = await api.getCatByID(id);
     formHolder.innerHTML = renderForm(currCat);
-    formHolder.classList.add("active");
     const form = formHolder.querySelector("form");
     closeFormButton(form);
     form.addEventListener("submit", async (event) => {

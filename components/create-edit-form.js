@@ -58,7 +58,7 @@ const createEditForm = (cat) => `
     </div>
     <div class="form-buttons"> 
     <button type="submit">Сохранить</button>
-    <button type="button" id="close-form">Отмена</button>
+    <button class="uk-modal-close-default" type="button" uk-close id="close-form"></button>
     </div>
 </div>
 </form>

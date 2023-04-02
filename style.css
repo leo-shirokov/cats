@@ -18,7 +18,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid rgb(11, 40, 85);
 }
 
 .header h1 {
@@ -57,7 +56,7 @@ main {
     background-color: rgb(246, 242, 242);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 300px;
     height: 350px;
@@ -66,18 +65,19 @@ main {
     border-radius: 10px;
     color: rgb(177, 148, 17);
     font-weight: 700;
+    position: relative;
 }
 
-img {
+.image-container {
     padding: 5px;
+    margin-bottom: 30px;
     width: 270px;
     height: 180px;
-    margin-bottom: 20px;
     border-radius: 8px;
 }
 
 .cat-card-btns {
-    margin-top: 10px;
+    margin: 20px 0px 20px 0px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -86,43 +86,6 @@ img {
 
 .cat-card-view {
     font-family: "Comfortaa";
-}
-
-.cat-card-update {
-    padding: 10px;
-    border: none;
-    background-color: transparent;
-    font-size: 24px;
-    color: rgb(11, 40, 85);
-    cursor: pointer;
-}
-
-.cat-card-delete {
-    padding: 10px;
-    font-size: 24px;
-    cursor: pointer;
-    color: rgb(11, 40, 85);
-    border: none;
-    background-color: transparent;
-}
-
-.create-edit-modal-form {
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: auto;
-    width: 500px;
-    height: 350px;
-    padding: 20px;
-    border: 1px solid rgb(11, 40, 85);
-    border-radius: 5px;
-    background-color: white;
-    transition: all 0.7s ease;
-    opacity: 0;
-    visibility: hidden;
-    overflow: auto;
-    background-color: rgb(246, 246, 246);
 }
 
 .form-wrapper {
@@ -155,11 +118,6 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.active {
-    visibility: visible;
-    opacity: 1;
 }
 
 .details-wrapper {
@@ -206,11 +164,18 @@ img {
     padding: 3px;
 }
 
+.favorite {
+    position: relative;
+}
+
 .details-like {
     color: rgb(178, 74, 74);
     font-size: 26px;
     padding: 10px;
     cursor: pointer;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
 }
 
 .details-description {
@@ -262,13 +227,6 @@ img {
 
     .main {
         width: 90%;
-    }
-
-    .create-edit-modal-form {
-        top: 10px;
-        left: 50%;
-        width: 95%;
-        height: 70vh;
     }
 
     .details-image {

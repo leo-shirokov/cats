@@ -38,7 +38,12 @@
     </head>
     <body>
         <header class="header">
-            <span id="add-cat-button" title="Добавить кота"
+            <span
+                id="add-cat-button"
+                class="cat-card-update uk-button uk-button-link"
+                href="#modal-center-create-edit"
+                uk-toggle
+                title="Добавить кота"
                 ><i class="fa-solid fa-plus"></i
             ></span>
             <h1>
@@ -49,7 +54,12 @@
         <main class="main animate__animated animate__backInDown">
             <div id="content" class="content"></div>
 
-            <div id="create-edit-modal" class="create-edit-modal-form"></div>
+            <div id="modal-center-create-edit" class="uk-flex-top" uk-modal>
+                <div
+                    id="create-edit-modal"
+                    class="create-edit-modal-form uk-modal-dialog uk-modal-body uk-margin-auto-vertical"
+                ></div>
+            </div>
 
             <div id="modal-center" class="uk-flex-top" uk-modal>
                 <div

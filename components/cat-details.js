@@ -47,7 +47,5 @@ async function showCatDetails(id) {
     pDesc.className = "details-description";
     pDesc.innerText = cat?.description ?? "";
     detailsContainer.appendChild(pDesc);
-
-    holder.classList.add("active");
 }
 export default showCatDetails;
