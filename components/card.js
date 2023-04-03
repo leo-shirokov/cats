@@ -3,8 +3,10 @@ const generateCard = (cat) => {
     <div class="cat-card">
         <div class="image-container">
             ${
-                cat?.image &&
-                `<img src=${cat.image} alt="Не удалось загрузить изображение" />`
+                (cat?.image &&
+                    `<img src=${cat.image} alt="Не удалось загрузить изображение" />`) ||
+                (!cat?.image &&
+                    `<img src=https://raw.githubusercontent.com/leo-shirokov/cats/main/imageDefault.jpeg />`)
             } 
         </div>
     ${cat?.name ?? ""}
@@ -20,7 +22,7 @@ const generateCard = (cat) => {
             }>Удалить</button>
         </div>
             <i class="details-like fa-heart  ${
-                cat?.favorite ? "fa-regular" : "fa-solid"
+                cat?.favorite ? "fa-solid" : "fa-regular"
             }" id="${`heart-${cat?.id}`}"></i>
     </div>`;
 };

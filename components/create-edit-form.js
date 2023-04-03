@@ -1,16 +1,13 @@
-const defaultImage =
-    "https://raw.githubusercontent.com/leo-shirokov/cats/main/imageDefault.jpeg";
-
 const createEditForm = (cat) => `
-<form id="create-edit-form" action="">
 <div class="form-wrapper">
+<form id="create-edit-form" action="">
     <div>
     <label for="name" required>
         Позывной*
     </label>
     <input class="formField"
-            ${cat?.name ? `value="${cat.name}"` : `placeholder="Имя"`}
-            name="name" maxlength="40"
+            ${cat?.name ? `value="${cat.name}"` : `placeholder="Кличка"`}
+            name="name" maxlength="40" size="34"
             required
         />
     </div>
@@ -18,9 +15,13 @@ const createEditForm = (cat) => `
     <label for="image">
         Фото
     </label>
-    <input size="40" 
+    <input class="formField" size="40" 
             name="image"
-            value="${cat?.image ? cat.image : defaultImage}"
+            ${
+                cat?.image
+                    ? `value="${cat.image}"`
+                    : `placeholder="Ссылка на изображение"`
+            }
         />
     </div>
     <div>
@@ -33,7 +34,7 @@ const createEditForm = (cat) => `
             type="number"
             min="0"
             max="30"
-            ${cat?.age ? `value="${cat.age}"` : `placeholder="Возраст"`}
+            ${cat?.age ? `value="${cat.age}"` : `placeholder="0"`}
         />
     </div>
     <div>
@@ -54,14 +55,14 @@ const createEditForm = (cat) => `
     <textarea
             class="formField"
             name="description"
-            rows="3"
-            cols="46"
+            rows="4"
+            cols="37"
             placeholder="Описание" 
         >${cat?.description ?? ""}</textarea>
     </div>
     <button class="uk-button uk-button-default uk-button-small" type="submit">Сохранить</button>
     <button class="uk-modal-close-default" type="button" uk-close id="close-form"></button>
-</div>
 </form>
+</div>
 `;
 export default createEditForm;
