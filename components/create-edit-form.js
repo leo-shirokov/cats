@@ -32,6 +32,8 @@ const createEditForm = (cat) => `
             class="formField"
             name="age"
             type="number"
+            pattern="[0-9]*"
+            inputmode="numeric" 
             min="0"
             max="30"
             ${cat?.age ? `value="${cat.age}"` : `placeholder="0"`}
@@ -45,6 +47,8 @@ const createEditForm = (cat) => `
             class="formField"
             name="rate"
             type="number"
+            inputmode="decimal"
+            pattern="\d*" 
             min="0"
             max="5"
             ${cat?.rate ? `value="${cat.rate}"` : `placeholder="0"`}

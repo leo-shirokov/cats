@@ -153,9 +153,9 @@ form {
 }
 
 .details-image {
-    padding-top: 20px;
     width: 430px;
     height: 320px;
+    padding-top: 20px;
 }
 
 .details-header {
@@ -251,5 +251,9 @@ form {
         padding-top: 20px;
         width: 330px;
         height: 250px;
+    }
+
+    .details-close {
+        top: 2px;
     }
 }
