@@ -23,6 +23,14 @@ async function showCatDetails(id) {
         img.src = cat.image;
         detailsContainer.appendChild(img);
     }
+    // else {
+    //     const defaultImage =
+    //         "https://raw.githubusercontent.com/leo-shirokov/cats/main/imageDefault.jpeg";
+    //     const img = document.createElement("img");
+    //     img.className = "details-image";
+    //     img.src = defaultImage;
+    //     detailsContainer.appendChild(img);
+    // }
 
     const h3 = document.createElement("h3");
     h3.className = "details-header";

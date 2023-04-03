@@ -27,6 +27,27 @@ async function deleteCat(id) {
     updateContent();
 }
 
+function addToLocalStorage(form) {
+    const formFields = form.querySelectorAll(".formField");
+
+    for (let i = 0; i < formFields.length; i++) {
+        formFields[i].addEventListener("change", () => {
+            localStorage.setItem(formFields[i].name, formFields[i].value);
+        });
+    }
+}
+
+function readFromLocalStorage(form) {
+    const formFields = form.querySelectorAll(".formField");
+    formFields.forEach((input) => {
+        if (input.tagName === "INPUT") {
+            input.value = localStorage.getItem(input.name);
+        } else {
+            input.innerText = localStorage.getItem(input.name);
+        }
+    });
+}
+
 // универсальная ф-ция, кот. используется для добавления / изменения карточки
 // action: addCat / updateCat
 async function update(event, action, catId) {
@@ -54,7 +75,10 @@ function addNewCat() {
     // add submit listener to the form
     const form = formHolder.querySelector("form");
     closeFormButton(form);
+    readFromLocalStorage(form);
+    addToLocalStorage(form);
     form.addEventListener("submit", async (event) => {
+        localStorage.clear();
         await update(event, "addCat");
     });
 }

@@ -1,3 +1,6 @@
+const defaultImage =
+    "https://raw.githubusercontent.com/leo-shirokov/cats/main/imageDefault.jpeg";
+
 const createEditForm = (cat) => `
 <form id="create-edit-form" action="">
 <div class="form-wrapper">
@@ -5,7 +8,7 @@ const createEditForm = (cat) => `
     <label for="name" required>
         Позывной*
     </label>
-    <input
+    <input class="formField"
             ${cat?.name ? `value="${cat.name}"` : `placeholder="Имя"`}
             name="name" maxlength="40"
             required
@@ -17,11 +20,7 @@ const createEditForm = (cat) => `
     </label>
     <input size="40" 
             name="image"
-            ${
-                cat?.image
-                    ? `value="${cat.image}"`
-                    : `placeholder="Ссылка на изображение"`
-            }
+            value="${cat?.image ? cat.image : defaultImage}"
         />
     </div>
     <div>
@@ -29,6 +28,7 @@ const createEditForm = (cat) => `
         Возраст
     </label>
     <input
+            class="formField"
             name="age"
             type="number"
             max="30"
@@ -40,6 +40,7 @@ const createEditForm = (cat) => `
         Рейтинг
     </label>
     <input
+            class="formField"
             name="rate"
             type="number"
             min="0"
@@ -50,6 +51,7 @@ const createEditForm = (cat) => `
     <div>
    
     <textarea
+            class="formField"
             name="description"
             rows="3"
             cols="46"
