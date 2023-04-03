@@ -32,6 +32,11 @@ body {
     cursor: pointer;
     padding: 15px 0px 0px 20px;
     border: none;
+    transition: color 0.2s linear;
+}
+
+#add-cat-button:hover {
+    color: rgb(155, 139, 50);
 }
 
 main {
@@ -73,7 +78,13 @@ main {
     margin-bottom: 30px;
     width: 270px;
     height: 180px;
-    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    border-radius: 7px;
 }
 
 .cat-card-btns {
@@ -99,20 +110,22 @@ main {
     flex-wrap: nowrap;
 }
 
-.form-buttons {
-    display: flex;
-    gap: 30px;
-    justify-content: space-between;
-    align-items: center;
+/* .submit-button {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    background-color: red;
 }
 
-.form-buttons button {
+.submit-button button {
     width: 100px;
     font-size: 14px;
     padding: 6px;
+    border: 1ps solid grey;
     border-radius: 5px;
     cursor: pointer;
-}
+    background-color: rgb(243, 243, 243);
+} */
 
 .cat-details {
     display: flex;

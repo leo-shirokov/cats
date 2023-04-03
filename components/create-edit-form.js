@@ -31,6 +31,7 @@ const createEditForm = (cat) => `
             class="formField"
             name="age"
             type="number"
+            min="0"
             max="30"
             ${cat?.age ? `value="${cat.age}"` : `placeholder="Возраст"`}
         />
@@ -58,10 +59,8 @@ const createEditForm = (cat) => `
             placeholder="Описание" 
         >${cat?.description ?? ""}</textarea>
     </div>
-    <div class="form-buttons"> 
-    <button type="submit">Сохранить</button>
+    <button class="uk-button uk-button-default uk-button-small" type="submit">Сохранить</button>
     <button class="uk-modal-close-default" type="button" uk-close id="close-form"></button>
-    </div>
 </div>
 </form>
 `;

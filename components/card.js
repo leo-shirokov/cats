@@ -1,9 +1,12 @@
 const generateCard = (cat) => {
-    return `<div class="cat-card"><div class="image-container">
-    ${
-        cat?.image &&
-        `<img src=${cat.image} alt="Не удалось загрузить изображение" /></div>`
-    } 
+    return `
+    <div class="cat-card">
+        <div class="image-container">
+            ${
+                cat?.image &&
+                `<img src=${cat.image} alt="Не удалось загрузить изображение" />`
+            } 
+        </div>
     ${cat?.name ?? ""}
         <div class="cat-card-btns">
             <button class="cat-card-view uk-button uk-button-link" href="#modal-center" uk-toggle title="Посмотреть детали" value=${
@@ -15,7 +18,7 @@ const generateCard = (cat) => {
             <button class="cat-card-delete uk-button uk-button-link" title="Удалить" value=${
                 cat?.id ?? ""
             }>Удалить</button>
-            </div>
+        </div>
             <i class="details-like fa-heart  ${
                 cat?.favorite ? "fa-regular" : "fa-solid"
             }" id="${`heart-${cat?.id}`}"></i>
