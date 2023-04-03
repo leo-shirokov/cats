@@ -42,18 +42,18 @@ const createEditForm = (cat) => `
     <input
             name="rate"
             type="number"
+            min="0"
             max="5"
-            ${cat?.rate ? `value="${cat.rate}"` : `placeholder="Рейтинг"`}
+            ${cat?.rate ? `value="${cat.rate}"` : `placeholder="0"`}
         />
     </div>
     <div>
-    <label for="decsription">
-        Описание
-    </label>
+   
     <textarea
             name="description"
             rows="3"
-            size="30"
+            cols="46"
+            placeholder="Описание" 
         >${cat?.description ?? ""}</textarea>
     </div>
     <div class="form-buttons"> 
