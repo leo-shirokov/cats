@@ -6,13 +6,13 @@ import showCatDetails from "./components/cat-details.js";
 const addButton = document.getElementById("add-cat-button");
 const content = document.getElementById("content");
 const formHolder = document.getElementById("create-edit-modal");
-
 const modale = document.getElementById("modal-center-create-edit");
 
 async function updateContent() {
     const cats = await api.getAllCats(); // array
     const cardsContent = cats.reduce((prev, cur) => prev + renderCard(cur), ""); // big long text
     content.innerHTML = cardsContent;
+    document.getElementById("badge").innerHTML = cats.length;
 }
 
 async function getNewCatId() {
@@ -109,10 +109,14 @@ function contentEventListeners(event) {
     const [className] = event.target.className.split(" ");
     switch (className) {
         case "cat-card-delete":
-            if (confirm("Ты хорошо подумал, кожаный?")) {
-                return deleteCat(event.target.value);
-            }
-            return;
+            UIkit.modal.confirm("Ты хорошо подумал, кожаный?").then(
+                function () {
+                    return deleteCat(event.target.value);
+                },
+                function () {
+                    return;
+                }
+            );
         case "cat-card-update":
             return updateCat(event.target.value);
         case "cat-card-view":

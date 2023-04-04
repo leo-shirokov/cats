@@ -52,7 +52,7 @@ const createEditForm = (cat) => `
             min="0"
             max="5"
             ${cat?.rate ? `value="${cat.rate}"` : `placeholder="0"`}
-        />
+        /><span> (0-5)</span>
     </div>
     <div>
    

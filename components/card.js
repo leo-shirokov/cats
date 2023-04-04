@@ -3,10 +3,9 @@ const generateCard = (cat) => {
     <div class="cat-card">
         <div class="image-container">
             ${
-                (cat?.image &&
-                    `<img src=${cat.image} alt="Не удалось загрузить изображение" />`) ||
-                (!cat?.image &&
-                    `<img src=https://raw.githubusercontent.com/leo-shirokov/cats/main/imageDefault.jpeg />`)
+                cat?.image
+                    ? `<img src=${cat.image} alt="Не удалось загрузить изображение" />`
+                    : `<img src=https://raw.githubusercontent.com/leo-shirokov/cats/main/imageDefault.jpeg />`
             } 
         </div>
     ${cat?.name ?? ""}

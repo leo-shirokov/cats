@@ -32,6 +32,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 60px;
 }
 
 .header h1 {
@@ -126,6 +133,11 @@ form {
     flex-direction: column;
     align-items: baseline;
     gap: 30px;
+    color: rgb(11, 40, 85);
+}
+
+form span {
+    font-size: 12px;
 }
 
 .cat-details {
@@ -143,8 +155,9 @@ form {
 
 .details-close {
     position: absolute;
-    top: 5px;
+    top: 3px;
     left: 10px;
+    color: rgb(11, 40, 85);
     font-size: 34px;
     border: none;
     padding: 5px;
