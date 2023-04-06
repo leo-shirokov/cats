@@ -1,11 +1,18 @@
-// const apiKey = process.env.API_KEY;
+const netlifyUrl = "https://cat-backend.netlify.app/.netlify/functions/api";
+
+async function getApiKey() {
+    const res = await fetch(netlifyUrl);
+    if (!res.ok) throw new Error("cannot get API key");
+    const { api_key } = await res.json();
+    return api_key;
+}
 
 const aiUrl = "https://api.openai.com/v1/chat/completions";
 
 export async function openAI(body = null) {
     const headers = {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${API_KEY}`,
+        Authorization: `Bearer ${await getApiKey()}`,
     };
     const res = await fetch(aiUrl, {
         method: "POST",
