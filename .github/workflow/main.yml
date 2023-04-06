@@ -1,0 +1,6 @@
+steps:
+  - name: Use the API key
+    env:
+        AI_KEY: ${{ secrets.AI_KEY }}
+      run:
+      #Use the API key
