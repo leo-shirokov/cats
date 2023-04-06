@@ -1,10 +1,9 @@
 const aiUrl = "https://api.openai.com/v1/chat/completions";
-const AI_KEY = "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";
 
 export async function openAI(body = null) {
     const headers = {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${AI_KEY}`,
+        Authorization: `Bearer ${secrets.AI_KEY}`,
     };
     const res = await fetch(aiUrl, {
         method: "POST",
