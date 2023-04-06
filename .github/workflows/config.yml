@@ -1,9 +1,9 @@
-name: Publish GitHub Actions Artifacts Example
+name: iCats
 on:
     push:
         branches: [main]
 jobs:
-    github-actions-environment-variables-macos:
+    my-job:
         runs-on: macos-latest
         steps:
       # Show how to print unmasked GitHub secrets to the console
