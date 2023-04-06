@@ -1,33 +1,33 @@
-# steps:
-#   - name: Use the API key
-#     env:
-#         AI_KEY: ${{ secrets.AI_KEY }}
-#       run:
-#       #Use the API key
+name: Example Workflow
 
-# steps:
-#     - name: Hello world action
-#       with: # Set the secret as an input
-#           super_secret: ${{ secrets.AI_KEY }}
-#       env: # Or as an environment variable
-#           super_secret: ${{ secrets.AI_KEY }}
-
-name: My Workflow
-on: push
+on:
+    push:
+        branches:
+            - main
 
 jobs:
-    my-job:
+    build:
         runs-on: ubuntu-latest
+
         steps:
             - name: Checkout code
               uses: actions/checkout@v2
-            - name: Install Node.js
+
+            - name: Setup Node.js environment
               uses: actions/setup-node@v2
               with:
                   node-version: "14"
+
             - name: Install dependencies
               run: npm install
-            - name: Run script
+
+            - name: Run tests
+              run: npm test
+
+            - name: Deploy to production
+              if: github.ref == 'refs/heads/main'
               env:
-                  AI_KEY: ${{ secrets.AI_KEY }}
-              run: node my-script.js
+                  API_KEY: ${{ secrets.API_KEY }}
+              run: |
+                  npm run build
+                  node deploy.js
