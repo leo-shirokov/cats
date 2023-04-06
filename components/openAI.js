@@ -1,11 +1,11 @@
-const apiKey = process.env.API_KEY;
+// const apiKey = process.env.API_KEY;
 
 const aiUrl = "https://api.openai.com/v1/chat/completions";
 
 export async function openAI(body = null) {
     const headers = {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
+        Authorization: `Bearer ${API_KEY}`,
     };
     const res = await fetch(aiUrl, {
         method: "POST",
