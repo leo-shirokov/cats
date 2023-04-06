@@ -3,25 +3,25 @@ import renderCard from "./components/card.js";
 import renderForm from "./components/create-edit-form.js";
 import showCatDetails from "./components/cat-details.js";
 
-import { openChatGpt } from "./components/openAI.js";
+// import { openChatGpt } from "./components/openAI.js";
 
 const addButton = document.getElementById("add-cat-button");
 const content = document.getElementById("content");
 const formHolder = document.getElementById("create-edit-modal");
 const modale = document.getElementById("modal-center-create-edit");
 
-const aiButton = document.getElementById("open-ai");
-const aiSection = document.querySelector(".ai-answer");
-aiSection.innerHTML =
-    "Нажмите, чтобы сгенерировать через ChatGPT бесчисленное количествро кличек для животного (вывод по пять кличек на каждый клик).";
-aiButton.addEventListener("click", showAiAnswer);
+// const aiButton = document.getElementById("open-ai");
+// const aiSection = document.querySelector(".ai-answer");
+// aiSection.innerHTML =
+//     "Нажмите, чтобы сгенерировать через ChatGPT бесчисленное количествро кличек для животного (вывод по пять кличек на каждый клик).";
+// aiButton.addEventListener("click", showAiAnswer);
 
-async function showAiAnswer() {
-    const aiSection = document.querySelector(".ai-answer");
-    aiSection.innerHTML = "Пожалуйста подождите";
-    const chatGPT = await openChatGpt();
-    aiSection.innerHTML = chatGPT;
-}
+// async function showAiAnswer() {
+//     const aiSection = document.querySelector(".ai-answer");
+//     aiSection.innerHTML = "Пожалуйста подождите";
+//     const chatGPT = await openChatGpt();
+//     aiSection.innerHTML = chatGPT;
+// }
 
 async function updateContent() {
     const cats = await api.getAllCats(); // array
