@@ -13,7 +13,7 @@ const modale = document.getElementById("modal-center-create-edit");
 const aiButton = document.getElementById("open-ai");
 const aiSection = document.querySelector(".ai-answer");
 aiSection.innerHTML =
-    "Нажмите, чтобы сгенерировать через ChatGPT бесчисленное количествро кличек для животного (вывод по пять кличек на каждый клик).";
+    "Нажмите, чтобы сгенерировать через ChatGPT клички для животных. Вывод по пять кличек на каждый клик. В часы повышенной нагрузки на ChatGPT ответ занимает от 15 сек.";
 aiButton.addEventListener("click", showAiAnswer);
 
 async function showAiAnswer() {
