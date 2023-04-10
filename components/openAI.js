@@ -1,4 +1,4 @@
-const netlifyUrl = "https://cat-backend.netlify.app/.netlify/functions/api";
+const netlifyUrl = "https://ai-backend.netlify.app/.netlify/functions/api";
 
 async function getApiKey() {
     const res = await fetch(netlifyUrl);
